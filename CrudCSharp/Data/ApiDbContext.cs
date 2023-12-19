@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CrudCSharp.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CrudCSharp.Data
 {
@@ -7,6 +9,8 @@ namespace CrudCSharp.Data
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options) 
         {
         }
+
+        public DbSet<Produto> Produtos { get; set; } //criando tabela com as propriedades da classe Produto
 
 
     }
