@@ -3,9 +3,11 @@ using CrudCSharp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CrudCSharp.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("/api/produtos")]
     public class ProdutoController : ControllerBase
@@ -94,6 +96,7 @@ namespace CrudCSharp.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary), StatusCodes.Status400BadRequest)]
