@@ -1,4 +1,5 @@
 ﻿using CrudCSharp.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace CrudCSharp.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/conta")]
     public class AuthController : ControllerBase
